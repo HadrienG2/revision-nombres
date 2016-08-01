@@ -1,0 +1,13 @@
+project Revision_Nombres is
+
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Main use ("main_italien.adb", "main_persan.adb");
+
+   package Builder is
+      for Executable ("main_italien.adb") use "il_numero_italiano";
+      for Executable ("main_persan.adb") use "automate_farsi";
+   end Builder;
+
+end Revision_Nombres;
+
