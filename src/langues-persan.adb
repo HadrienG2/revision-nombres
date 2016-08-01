@@ -50,7 +50,7 @@ package body Langues.Persan is
          when 40 =>
             return "tchéhél";
          when 50 =>
-            return "pândjâh";
+            return "pandjâh";
          when 60 =>
             return "chast";
          when 70 =>
@@ -65,12 +65,24 @@ package body Langues.Persan is
             return "dévist";
          when 300 =>
             return "sisad";
+         when 400 =>
+            return "tchahârsad";
+         when 500 =>
+            return "pânsad";
+         when 600 =>
+            return "chéchsad";
+         when 700 =>
+            return "haftsad";
+         when 800 =>
+            return "hachtsad";
+         when 900 =>
+            return "nohsad";
          when others =>
             if N < 1 then
                raise Constraint_Error with "Je ne sais pas traduire ce nombre!";
             elsif N < 100 then
                return Traduire_Nombre ((N / 10) * 10) & "-o " & Traduire_Nombre (N mod 10);
-            elsif N <= 399 then
+            elsif N <= 999 then
                return Traduire_Nombre ((N / 100) * 100) & "-o " & Traduire_Nombre (N mod 100);
             else
                raise Constraint_Error with "Je ne sais pas traduire ce nombre!";

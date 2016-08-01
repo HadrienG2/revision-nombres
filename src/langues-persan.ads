@@ -2,7 +2,7 @@ with Traits_Langue;
 
 package Langues.Persan is
 
-   type Nombre is range 1 .. 399;
+   type Nombre is range 1 .. 999;
 
    function Traduire_Nombre (N : Nombre) return Wide_Wide_String;
 
