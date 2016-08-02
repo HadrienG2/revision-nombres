@@ -84,6 +84,17 @@ package body Langues.Persan is
                return Traduire_Nombre ((N / 10) * 10) & "-o " & Traduire_Nombre (N mod 10);
             elsif N <= 999 then
                return Traduire_Nombre ((N / 100) * 100) & "-o " & Traduire_Nombre (N mod 100);
+            elsif N <= 19_999 then
+               declare
+                  Milliers : constant Wide_Wide_String := (if N > 1_999 then
+                                                              Traduire_Nombre (N / 1000) & " "
+                                                           else "") & "hézâr";
+                  Reste : constant Nombre := N mod 1000;
+               begin
+                  return Milliers & (if Reste /= 0 then
+                                        "-o " & Traduire_Nombre (Reste)
+                                     else "");
+               end;
             else
                raise Constraint_Error with "Je ne sais pas traduire ce nombre!";
             end if;
